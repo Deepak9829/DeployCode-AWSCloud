@@ -1,12 +1,12 @@
 provider "aws" {
   region     = "ap-south-1"
-  profile    = "kapil"
+  profile    = "Deepak"
 }
 
 
 #Genetrating key
 resource "aws_key_pair" "deployer" {
-  key_name   = "kapil-deployer-key"
+  key_name   = "mykey"
   public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAoBrQ3+wXuzVBuecVGZAtvZHkCi/wADYpgd2jm5HNiSSPGBcNv/f6TEwOavTVZAjxoneTgc7+YrS3Dtf6zCLooKvu0dDpgHzvfqQnOLF9ChwSuPWJKm/TKnTPwHhJN6kHdD9Q0w5k+bIvewiQuxVRvsp7JewtVJFABt2HYC8dpRssKPNgW02LJhoMenlO4AbMgLdWh95yLCIDCk3SzXvnEm7T0H7vyi6e2ZMrwZHWDDb/n4MavKsNAoRcfQHDS+ecprOy+azL45vTbQKpw9ymrUfivKX24SnsHxRzLJjHidOh6xf6XIRk0XJBPcLUxni+YjvjIPGRWhr4e+8uTqbH1Q=="
 }
 
@@ -54,7 +54,7 @@ resource "aws_security_group" "security_permission" {
 resource "aws_instance" "linuxworld" {
   ami           = "ami-07a8c73a650069cf3"
   instance_type = "t2.micro"
-  key_name      = "kapil-deployer-key"
+  key_name      = "mykey"
   security_groups = [ "security_permission" ]
 
   tags = {
